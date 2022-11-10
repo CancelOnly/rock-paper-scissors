@@ -46,7 +46,6 @@ function getPlayerChoice() {
     }
 }
 
-
 function game() {
     let scorePlayer = 0;
     let scoreComputer = 0;
