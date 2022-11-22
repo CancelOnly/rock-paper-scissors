@@ -45,17 +45,6 @@ body {
   
 }
 
-.svg-logo {
-  fill: var(--icons);
-  height: 100px;
-  display: block;
-  margin: auto;
-}
-
-.fix {
-  transform: rotate(180deg);
-}
-
 .cube {
   transform-style: preserve-3d;
   width: 100%;
@@ -70,7 +59,37 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  display: flex;
+  display: flex;  
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+.svg-logo {
+  fill: var(--icons);
+  height: 100px;
+  display: block;
+  margin: auto;
+  
+}
+
+.face .svg-logo {
+ transform: translateZ(40px);
+ position: absolute;
+}
+
+.face .fix {
+  transform: translateZ(40px) rotate(180deg);
+}
+
+.face .svg-logo:nth-child(1) {
+ transform: translateZ(0px);
+ fill: rgba(0, 0, 0, 0.5);
+}
+
+.face .fix:nth-child(1) {
+ transform: translateZ(0px) rotate(180deg);
+ fill: rgba(0, 0, 0, 0.5);
 }
 
 .top {
