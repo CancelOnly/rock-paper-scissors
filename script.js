@@ -31,20 +31,20 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-function getPlayerChoice() {
-    let validatedInput = false;
-    while (validatedInput == false) {
-        const choice = prompt("Battle with your life! Choose:", "Rock, Paper or Scissors");
-        if (choice == null) {
-            continue;
-        } const choiceInLower = choice.toLocaleLowerCase();
+// function getPlayerChoice() {
+//     let validatedInput = false;
+//     while (validatedInput == false) {
+//         const choice = prompt("Battle with your life! Choose:", "Rock, Paper or Scissors");
+//         if (choice == null) {
+//             continue;
+//         } const choiceInLower = choice.toLocaleLowerCase();
 
-        if (options.includes(choiceInLower)) {
-            validatedInput = true;
-            return choiceInLower;
-        }
-    }
-}
+//         if (options.includes(choiceInLower)) {
+//             validatedInput = true;
+//             return choiceInLower;
+//         }
+//     }
+// }
 
 function game() {
     let scorePlayer = 0;

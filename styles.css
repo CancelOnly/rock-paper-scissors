@@ -1,0 +1,129 @@
+:root {
+  --bg-color: #202020;
+  --red: rgba(255, 8, 0);
+  --red1: 255, 8, 0;
+  --green: rgba(0, 236, 0);
+  --green1: 0, 236, 0;
+  --blue: rgba(0, 247, 255);
+  --blue1: 0, 247, 255;
+  --icons: #ffffff;
+}
+
+.cube-blue {
+  --color: var(--blue);
+  --color1: var(--blue1);
+}
+.cube-red {
+  --color: var(--red);
+  --color1: var(--red1);
+}
+.cube-green {
+  --color: var(--green);
+  --color1: var(--green1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  padding-bottom: 10em;
+}
+
+.container {
+  width: 205px;
+  height: 205px;
+  perspective: 1000px;
+  
+}
+
+.svg-logo {
+  fill: var(--icons);
+  height: 100px;
+  display: block;
+  margin: auto;
+}
+
+.fix {
+  transform: rotate(180deg);
+}
+
+.cube {
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  animation: spin 5s infinite linear,
+  floating 8s infinite linear; 
+  
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(100px);
+  background: #151515;
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(250px);
+  background: var(--color);
+  filter: blur(20px);
+  box-shadow: 0 0 120px rgba(var(--color1), 0.2),
+    0 0 200px rgba(var(--color1), 0.4), 0 0 300px rgba(var(--color1), 0.6),
+    0 0 400px rgba(var(--color1), 0.8), 0 0 500px rgba(var(--color1), 0.1);
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(100px);
+  background: linear-gradient(#151515, var(--color));
+}
+.left {
+  transform: rotateY(-90deg) translateZ(100px);
+  background: linear-gradient(#151515, var(--color));
+}
+
+.front {
+  transform: rotateX(0deg) translateZ(100px);
+  background: linear-gradient(#151515, var(--color));
+}
+.back {
+  transform: rotateX(-180deg) translateZ(100px);
+  background: linear-gradient(var(--color), #151515);
+}
+
+@keyframes spin {
+  from {
+    transform: rotateX(-25deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-25deg) rotateY(360deg);
+  }
+}
+
+@keyframes floating {
+    0%{top: 23%;}
+    30%{top: 33%;}
+    50%{top:23%;}
+    70%{top:35%;}
+    100%{top:23%;}
+}
+
+.cube-blue,
+.cube-red,
+.cube-green {
+  scale: 60%;
+}
