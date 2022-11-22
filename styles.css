@@ -9,18 +9,21 @@
   --icons: #ffffff;
 }
 
-.cube-blue {
-  --color: var(--blue);
-  --color1: var(--blue1);
-}
 .cube-red {
   --color: var(--red);
   --color1: var(--red1);
 }
+
 .cube-green {
   --color: var(--green);
   --color1: var(--green1);
 }
+
+.cube-blue {
+  --color: var(--blue);
+  --color1: var(--blue1);
+}
+
 
 * {
   margin: 0;
@@ -42,7 +45,6 @@ body {
   width: 205px;
   height: 205px;
   perspective: 1000px;
-  
 }
 
 .cube {
@@ -50,16 +52,21 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
-  animation: spin 5s infinite linear,
-  floating 8s infinite linear; 
-  
+  animation: spin 5s infinite linear, floating 8s infinite linear;
 }
+
+.cube-blue,
+.cube-red,
+.cube-green {
+  scale: 60%;
+}
+
 
 .face {
   position: absolute;
   width: 100%;
   height: 100%;
-  display: flex;  
+  display: flex;
   align-items: center;
   justify-content: center;
   transform-style: preserve-3d;
@@ -70,12 +77,11 @@ body {
   height: 100px;
   display: block;
   margin: auto;
-  
 }
 
 .face .svg-logo {
- transform: translateZ(40px);
- position: absolute;
+  transform: translateZ(40px);
+  position: absolute;
 }
 
 .face .fix {
@@ -83,13 +89,13 @@ body {
 }
 
 .face .svg-logo:nth-child(1) {
- transform: translateZ(0px);
- fill: rgba(0, 0, 0, 0.5);
+  transform: translateZ(0px);
+  fill: rgba(0, 0, 0, 0.5);
 }
 
 .face .fix:nth-child(1) {
- transform: translateZ(0px) rotate(180deg);
- fill: rgba(0, 0, 0, 0.5);
+  transform: translateZ(0px) rotate(180deg);
+  fill: rgba(0, 0, 0, 0.5);
 }
 
 .top {
@@ -134,15 +140,20 @@ body {
 }
 
 @keyframes floating {
-    0%{top: 23%;}
-    30%{top: 33%;}
-    50%{top:23%;}
-    70%{top:35%;}
-    100%{top:23%;}
+  0% {
+    top: 23%;
+  }
+  30% {
+    top: 33%;
+  }
+  50% {
+    top: 23%;
+  }
+  70% {
+    top: 35%;
+  }
+  100% {
+    top: 23%;
+  }
 }
 
-.cube-blue,
-.cube-red,
-.cube-green {
-  scale: 60%;
-}
