@@ -121,26 +121,42 @@ body {
   position: absolute;
   height: 100%;
   width: 100%;
-  align-items: center;
-  justify-content: space-between;
+  
 }
 
 .score {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-left: 6em;
   background: #333;
-  gap: 20em;
-  width: 20%;
+  gap: 5em;
+  width: 30%;
 }
-
-.winnerDiv {
+.winner {
   display: flex;
-  background: red;
-  height: 200px;
-  width: 200px;
+  width: 30%;
+  padding: 2em;
+  height: 5em;
   justify-content: center;
+  align-self: flex-start;
+color: #fff;
+}
+button {
+  background-color: #ffffff;
+  border: 1px solid rgba(54, 54, 54, 0.6);
+  font-weight: 600;
+  position: relative;
+  outline: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 45px;
+  width: 130px;
+  opacity: 1;
 }
 
 .menu {
