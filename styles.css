@@ -24,7 +24,6 @@
   --color1: var(--blue1);
 }
 
-
 * {
   margin: 0;
   padding: 0;
@@ -36,11 +35,35 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 8em;
   align-items: flex-end;
-  padding-bottom: 10em;
+  padding-bottom: 12em;
+  overflow: hidden;
 }
 
+.pc-container {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  height: auto;
+  width: 60rem;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 250px;
+  z-index: 3;
+}
+
+.pc-emotions {
+  display: flex;
+  position: absolute;
+  align-self: center;
+  padding: 0;
+  margin: 0px;
+  display: none;
+  z-index: 2;
+}
 .container {
   width: 205px;
   height: 205px;
@@ -53,14 +76,14 @@ body {
   height: 100%;
   position: relative;
   animation: spin 5s infinite linear, floating 8s infinite linear;
+  cursor: pointer;
 }
 
 .cube-blue,
 .cube-red,
 .cube-green {
-  scale: 60%;
+  scale: 50%;
 }
-
 
 .face {
   position: absolute;
@@ -98,15 +121,20 @@ body {
   fill: rgba(0, 0, 0, 0.5);
 }
 
+.face:nth-child(6) {
+  animation: floating 8s infinite linear, shadow-size 8s infinite linear;
+  animation-direction: reverse;
+}
+
 .top {
   transform: rotateX(90deg) translateZ(100px);
   background: #151515;
 }
 
 .bottom {
-  transform: rotateX(-90deg) translateZ(250px);
+  transform: rotateX(-90deg) translateZ(200px);
   background: var(--color);
-  filter: blur(20px);
+  filter: blur(35px);
   box-shadow: 0 0 120px rgba(var(--color1), 0.2),
     0 0 200px rgba(var(--color1), 0.4), 0 0 300px rgba(var(--color1), 0.6),
     0 0 400px rgba(var(--color1), 0.8), 0 0 500px rgba(var(--color1), 0.1);
@@ -157,3 +185,74 @@ body {
   }
 }
 
+@keyframes shadow-size {
+  0% {
+    width: 150%;
+    height: 150%;
+  }
+  30% {
+    width: 120%;
+    height: 120%;
+  }
+  50% {
+    width: 150%;
+    height: 150%;
+  }
+  70% {
+    width: 120%;
+    height: 120%;
+  }
+  100% {
+    width: 150%;
+    height: 150%;
+  }
+}
+
+.menu {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+.fa-play {
+  margin-top: 0.3em;
+  margin-left: 0.3em;
+  width: 1.5em;
+  height: 1.5em;
+  fill: #151515;
+}
+.menu .toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 3;
+  transition: 1.25s;
+}
+
+.menu.active .toggle {
+  transform: rotate(360deg);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 0 0 2px #333, 0 0 0 8px #fff;
+}
+
+.menu li {
+  position: absolute;
+  left: 0;
+  list-style: none;
+  transition: 0.5s;
+  transform: rotate(calc(360deg / 3 * var(--i)));
+  transform-origin: 340px;
+}
+
+.menu li a {
+  position: relative;
+  display: flex;
+}
