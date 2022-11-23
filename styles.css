@@ -85,6 +85,22 @@ body {
   scale: 50%;
 }
 
+/* Cube rotation on button axis */
+
+.red {
+  transform: translatex(-45px) translateY(-55px) rotateZ(0deg);
+}
+
+.green {
+  transform: translatex(-15px) rotateZ(115deg);
+  
+}
+
+.blue {
+  transform: translatex(-75px) translateY(-45px) rotateZ(230deg) ;
+  
+}
+
 .face {
   position: absolute;
   width: 100%;
@@ -216,6 +232,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 3;
+  
 }
 .fa-play {
   margin-top: 0.3em;
@@ -245,12 +262,14 @@ body {
 
 .menu li {
   position: absolute;
-  right: 250px;
+  right: 180px;
+  bottom: 50px;
   list-style: none;
   transition: 0.5s;
-  transform: rotate(calc(360deg / 10 * var(--i)));
-  transform-origin: 340px;
+  transform: rotate(calc(-240deg / 2.1 * var(--i)));
+  transform-origin: 240px;
   scale: 0;
+  transition-delay: calc(0.05s * var(--i));
 }
 
 .menu.active li {
@@ -259,4 +278,5 @@ body {
 .menu li a {
   position: relative;
   display: flex;
+  
 }
