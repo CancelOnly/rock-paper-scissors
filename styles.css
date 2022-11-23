@@ -245,13 +245,17 @@ body {
 
 .menu li {
   position: absolute;
-  left: 0;
+  right: 250px;
   list-style: none;
   transition: 0.5s;
-  transform: rotate(calc(360deg / 3 * var(--i)));
+  transform: rotate(calc(360deg / 10 * var(--i)));
   transform-origin: 340px;
+  scale: 0;
 }
 
+.menu.active li {
+  scale: 1;
+}
 .menu li a {
   position: relative;
   display: flex;
