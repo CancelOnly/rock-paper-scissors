@@ -34,90 +34,18 @@
   display: none;
 }
 
-@keyframes spin {
-  from {
-    transform: rotateX(-25deg) rotateY(0deg);
-  }
-  to {
-    transform: rotateX(-25deg) rotateY(360deg);
-  }
-}
-
-@keyframes floating {
-  0% {
-    top: 23%;
-  }
-  30% {
-    top: 33%;
-  }
-  50% {
-    top: 23%;
-  }
-  70% {
-    top: 35%;
-  }
-  100% {
-    top: 23%;
-  }
-}
-
-@keyframes floatingpc {
-  0% {
-    top: 5%;
-  }
-  30% {
-    top: 7%;
-  }
-  50% {
-    top: 5%;
-  }
-  70% {
-    top: 7%;
-  }
-  100% {
-    top: 5%;
-  }
-}
-
-@keyframes shadow-size {
-  0% {
-    width: 150%;
-    height: 150%;
-  }
-  30% {
-    width: 120%;
-    height: 120%;
-  }
-  50% {
-    width: 150%;
-    height: 150%;
-  }
-  70% {
-    width: 120%;
-    height: 120%;
-  }
-  100% {
-    width: 150%;
-    height: 150%;
-  }
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--green),
-      0 0 40px var(--green), 0 0 50px var(--green), 0 0 60px var(--green),
-      0 0 70px var(--green);
-  }
-  to {
-    text-shadow: 0 0 20px #fff, 0 0 30px var(--glow-darkgreen),
-      0 0 40px var(--glow-darkgreen), 0 0 50px var(--glow-darkgreen),
-      0 0 60px var(--glow-darkgreen), 0 0 70px var(--glow-darkgreen),
-      0 0 80px var(--glow-darkgreen);
-  }
-}
-
 *::selection {
   background-color: transparent;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+  min-height: 100vh;
+  margin: 0;
+  /* overflow: hidden; */
 }
 
 img {
@@ -127,58 +55,25 @@ img {
   -o-user-drag: none;
   -user-drag: none;
 }
-
-body {
-  background-color: var(--bg-color);
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  overflow: hidden;
-  margin: 0;
-}
-
-.displayScore {
-  display: flex;
-  position: absolute;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  bottom: 0;
-}
-.score {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  margin-left: 2em;
-  padding: 4em;
-  background: #c3c3c3;
-  color: 000000;
-  font-size: 12px;
-  gap: 2em;
-  width: 14em;
-  height: 30em;
-  
-}
-
-button {
+.title-bar-controls {
+  z-index: 2;
   cursor: pointer;
-  background-color: #ffffff;
-  border: 1px solid rgba(54, 54, 54, 0.6);
-  font-weight: 600;
-  position: absolute;
-  outline: none;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+.game-score {
+  height: auto;
+  width: 320px;
+  position: fixed;
+  align-self: center;
+  left: 0;
+  z-index: 3;
+}
+
+.reset {
+  position: relative;
   cursor: pointer;
-  height: 45px;
-  width: 130px;
   opacity: 1;
-  z-index: 4;
+  z-index: 3;
+  text-align: end;
 }
 
 .pc-container {
@@ -216,6 +111,7 @@ button {
   color: #fff;
   font-family: "VT323", monospace;
   animation: glow 1s ease-in-out infinite alternate;
+  font-size: 36px;
 }
 
 .pcShadow {
@@ -234,16 +130,6 @@ button {
   z-index: -1;
 }
 
-.pc-emotions {
-  display: flex;
-  position: absolute;
-  align-self: center;
-  padding: 0;
-  margin: 0px;
-  display: none;
-  z-index: 2;
-}
-
 .container {
   width: 205px;
   height: 205px;
@@ -251,60 +137,32 @@ button {
 }
 
 .menu {
-  position: absolute;
-  width: 280px;
-  height: 280px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-}
-.fa-play {
-  margin-top: 0.2em;
-  margin-left: 0.3em;
-  width: 1.2em;
-  height: 1.2em;
-  fill: #151515;
-}
-
-.menu .toggle {
   position: relative;
-  margin-bottom: 18em;
-  width: 2.5em;
-  height: 2.5em;
-  background-color: #ffffff;
-  border-radius: 50%;
+  width: 75px;
+  height: 23px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  place-self: end;
+  bottom: 25em;
   z-index: 3;
-  transition: 1.25s;
-}
-
-.menu.active .toggle {
-  transform: rotate(360deg);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 0 0 2px #333, 0 0 0 8px #fff;
 }
 
 .menu li {
   position: absolute;
-  right: 180px;
-  bottom: 200px;
+  left: -200px;
+  bottom: -100px;
+
   list-style: none;
   transition: 0.5s;
   transform: rotate(calc(-240deg / 2.1 * var(--i)));
   transform-origin: 240px;
   scale: 0;
   transition-delay: calc(0.05s * var(--i));
+  z-index: -1;
 }
 
 .menu.active li {
   scale: 1;
-}
-.menu li a {
-  position: relative;
-  display: flex;
+  z-index: -1;
 }
 
 .cube {
@@ -407,4 +265,88 @@ button {
 .back {
   transform: rotateX(-180deg) translateZ(100px);
   background: linear-gradient(var(--color), #151515);
+}
+
+/* All animations */
+
+@keyframes spin {
+  from {
+    transform: rotateX(-25deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-25deg) rotateY(360deg);
+  }
+}
+
+@keyframes floating {
+  0% {
+    top: 23%;
+  }
+  30% {
+    top: 33%;
+  }
+  50% {
+    top: 23%;
+  }
+  70% {
+    top: 35%;
+  }
+  100% {
+    top: 23%;
+  }
+}
+
+@keyframes floatingpc {
+  0% {
+    top: 5%;
+  }
+  30% {
+    top: 7%;
+  }
+  50% {
+    top: 5%;
+  }
+  70% {
+    top: 7%;
+  }
+  100% {
+    top: 5%;
+  }
+}
+
+@keyframes shadow-size {
+  0% {
+    width: 150%;
+    height: 150%;
+  }
+  30% {
+    width: 120%;
+    height: 120%;
+  }
+  50% {
+    width: 150%;
+    height: 150%;
+  }
+  70% {
+    width: 120%;
+    height: 120%;
+  }
+  100% {
+    width: 150%;
+    height: 150%;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--green),
+      0 0 40px var(--green), 0 0 50px var(--green), 0 0 60px var(--green),
+      0 0 70px var(--green);
+  }
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px var(--glow-darkgreen),
+      0 0 40px var(--glow-darkgreen), 0 0 50px var(--glow-darkgreen),
+      0 0 60px var(--glow-darkgreen), 0 0 70px var(--glow-darkgreen),
+      0 0 80px var(--glow-darkgreen);
+  }
 }

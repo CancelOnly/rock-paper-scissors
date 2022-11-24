@@ -7,58 +7,74 @@
     <title>Rock, Paper and Scissors</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
-    
+    <link rel="stylesheet" href="https://unpkg.com/98.css" />
 </head>
 <body>
-    
- 
-    
-    <!-- Score -->
-    <div class="displayScore">        
-    <div class="score">
-        <h3 class="computerChoice"></h3>
-        <h1 class="computerScore">PC Score: 0</h1> 
-        
-        <h1 class="ties">Ties: 0</h1>    
-        
-        <h1 class="playerScore">Player Score: 0</h1>  
-        <h3 class="playerChoice"></h3>      
-          
-  
-    </div>
-   
-    
-    
-    </div>
-    
-    </div>
-   
-  
-   
-    <!-- PC placeholder -->
+       
+    <!-- PC -->
    
         <div class="pc-container">
             <img src="./images/pc.gif" class="pc" alt="">
             <div class="pcShadow"></div>
            
             <div class="winnerDiv"></div>
-     <button class="reset" onclick="resetGame()">Play Again?</button>
+   
     <h1 class="winner"></h1>
         </div>
         
         <div class="computerSection">    
-            <div class="pc-emotions">
-                <img src="./images/placeholder.png" class="pc-face" alt="">
+          
         </div>
+        </div>
+    
+    
+       <!-- Score -->
+     <div class="game-score"> 
+        <div class="window" style="width: 320px">
+            <div class="title-bar">
+                <div class="title-bar-text">Game Score</div>
+                 <div class="title-bar-controls">
+                <button aria-label="Close"></button>
+  </div>
+            </div>
+    <div class="window-body">
+    
+    
+        <p> It's all in your head:</p>
+
+        <ul>
+                <div class="displayScore">        
+                <div class="score">
+                <h4 class="computerChoice"></h4>
+                <li><h4 class="computerScore">PC Score: 0</h4></li>
+                
+                <li><h4 class="ties">Ties: 0</h4></li>
+                
+                <li><h4 class="playerScore">Player Score: 0</h4></li>
+                <h4 class="playerChoice"></h4>
+                </div>
+                </div>
+                <button class="reset" onclick="resetGame()">Play Again?</button>
+        </ul>
+      
+        
+    <div class="status-bar">
+    <p class="status-bar-field">Call 911 for help</p>
+    <p class="status-bar-field">Best of 5</p>
+    <p class="status-bar-field">CPU Angriness: 100%</p>
     </div>
+    </div>
+    </div>
+</div> 
+    
     
     <!-- fazer o cubo escolhido girar mais rapido quando clicado
         fazer o nome do cubo em cima e sumir quando escolher outra coisa
      -->
-    
+ 
      <div class="menu">
         <!-- Play Button -->
-        <div class="toggle button"><svg class="fa-play open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></div>
+        <button class="toggle button">Play</button>
         <!-- Red Cube -->
         
     <div class="playerSection"> 
@@ -111,9 +127,7 @@
             </div>
             </li>
     </div>
-    </div>
-     
-    
+    </div> 
   
 </body>
 </html>
