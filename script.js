@@ -1,4 +1,4 @@
-// toggle menu
+// Button to display game options
 
 let toggle = document.querySelector('.toggle');
 let menu = document.querySelector('.menu');
@@ -9,19 +9,21 @@ toggle.onclick = function () {
 
 // Game Logic
 
-const choices = ["rock", "paper", "scissors"];
+
 let winners = [];
+const choices = ["rock", "paper", "scissors"];
 
 function resetGame() {
     winners = [];
-    document.querySelector(".playerScore").textContent = "Score: 0";
-    document.querySelector(".computerScore").textContent = "Score: 0";
+    document.querySelector(".playerScore").textContent = "Player Score: 0";
+    document.querySelector(".computerScore").textContent = "PC Score: 0";
     document.querySelector(".ties").textContent = "Ties: 0";
     document.querySelector(".winner").textContent = "";
     document.querySelector(".playerChoice").textContent = "";
     document.querySelector(".computerChoice").textContent = "";
     document.querySelector(".reset").style.display = "none";
 }
+
 
 
 function startGame() {

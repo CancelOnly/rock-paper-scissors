@@ -1,13 +1,17 @@
 /* make play buto one time event */
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&family=Questrial&display=swap");
 
 :root {
-  --bg-color: #202020;
+  --bg-color: #008080;
   --red: rgba(255, 8, 0);
   --red1: 255, 8, 0;
   --green: rgba(0, 236, 0);
   --green1: 0, 236, 0;
   --blue: rgba(0, 247, 255);
   --blue1: 0, 247, 255;
+  --glow-green: #00fa7d;
+  --glow-darkgreen: #049729;
+
   --icons: #ffffff;
 }
 
@@ -57,6 +61,24 @@
   }
 }
 
+@keyframes floatingpc {
+  0% {
+    top: 5%;
+  }
+  30% {
+    top: 7%;
+  }
+  50% {
+    top: 5%;
+  }
+  70% {
+    top: 7%;
+  }
+  100% {
+    top: 5%;
+  }
+}
+
 @keyframes shadow-size {
   0% {
     width: 150%;
@@ -80,16 +102,18 @@
   }
 }
 
-@keyframes pulse {
-  to {
-    box-shadow: 0 0 0 16px rgba(255, 255, 255, 0.01);
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--green),
+      0 0 40px var(--green), 0 0 50px var(--green), 0 0 60px var(--green),
+      0 0 70px var(--green);
   }
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  to {
+    text-shadow: 0 0 20px #fff, 0 0 30px var(--glow-darkgreen),
+      0 0 40px var(--glow-darkgreen), 0 0 50px var(--glow-darkgreen),
+      0 0 60px var(--glow-darkgreen), 0 0 70px var(--glow-darkgreen),
+      0 0 80px var(--glow-darkgreen);
+  }
 }
 
 *::selection {
@@ -108,46 +132,43 @@ body {
   background-color: var(--bg-color);
   min-height: 100vh;
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: center;
-  gap: 8em;
   align-items: flex-end;
   overflow: hidden;
+  margin: 0;
 }
 
 .displayScore {
   display: flex;
   position: absolute;
+  align-items: center;
   height: 100%;
   width: 100%;
-  
+  top: 0;
+  bottom: 0;
 }
-
 .score {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-left: 6em;
-  background: #333;
-  gap: 5em;
-  width: 30%;
+  margin-left: 2em;
+  padding: 4em;
+  background: #c3c3c3;
+  color: 000000;
+  font-size: 12px;
+  gap: 2em;
+  width: 14em;
+  height: 30em;
+  
 }
-.winner {
-  display: flex;
-  width: 30%;
-  padding: 2em;
-  height: 5em;
-  justify-content: center;
-  align-self: flex-start;
-color: #fff;
-}
+
 button {
+  cursor: pointer;
   background-color: #ffffff;
   border: 1px solid rgba(54, 54, 54, 0.6);
   font-weight: 600;
-  position: relative;
+  position: absolute;
   outline: none;
   border-radius: 50px;
   display: flex;
@@ -157,6 +178,76 @@ button {
   height: 45px;
   width: 130px;
   opacity: 1;
+  z-index: 4;
+}
+
+.pc-container {
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 2em;
+  height: auto;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  animation: floatingpc 5s infinite ease-in-out;
+}
+
+.pc {
+  height: auto;
+  width: 26rem;
+  position: absolute;
+}
+
+.winner {
+  position: relative;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  top: 45px;
+  right: -7px;
+  width: 170px;
+  height: 130px;
+  justify-content: center;
+  align-self: flex-start;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-family: "VT323", monospace;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+.pcShadow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 350px;
+  height: 200px;
+  transform: rotateX(-60deg) translateZ(350px);
+  background: #000000;
+  filter: blur(65px);
+  box-shadow: 0 0 120px rgba(var(--color1), 0.2),
+    0 0 200px rgba(var(--color1), 0.4), 0 0 300px rgba(var(--color1), 0.6),
+    0 0 400px rgba(var(--color1), 0.8), 0 0 500px rgba(var(--color1), 0.1);
+  z-index: -1;
+}
+
+.pc-emotions {
+  display: flex;
+  position: absolute;
+  align-self: center;
+  padding: 0;
+  margin: 0px;
+  display: none;
+  z-index: 2;
+}
+
+.container {
+  width: 205px;
+  height: 205px;
+  perspective: 1000px;
 }
 
 .menu {
@@ -169,18 +260,18 @@ button {
   z-index: 3;
 }
 .fa-play {
-  margin-top: 0.3em;
+  margin-top: 0.2em;
   margin-left: 0.3em;
-  width: 1.5em;
-  height: 1.5em;
+  width: 1.2em;
+  height: 1.2em;
   fill: #151515;
 }
 
 .menu .toggle {
   position: relative;
   margin-bottom: 18em;
-  width: 60px;
-  height: 60px;
+  width: 2.5em;
+  height: 2.5em;
   background-color: #ffffff;
   border-radius: 50%;
   display: flex;
@@ -216,37 +307,6 @@ button {
   display: flex;
 }
 
-.pc-container {
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  justify-content: center;
-  height: auto;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
-}
-
-.pc {
-  height: auto;
-  width: 60rem;
-}
-
-.pc-emotions {
-  display: flex;
-  position: absolute;
-  align-self: center;
-  padding: 0;
-  margin: 0px;
-  display: none;
-  z-index: 2;
-}
-.container {
-  width: 205px;
-  height: 205px;
-  perspective: 1000px;
-}
-
 .cube {
   transform-style: preserve-3d;
   width: 100%;
@@ -259,21 +319,21 @@ button {
 .cube-blue,
 .cube-red,
 .cube-green {
-  scale: 40%;
+  scale: 35%;
 }
 
 /* Cube rotation on button axis */
 
 .red {
-  transform: translatex(-45px) translateY(-55px) rotateZ(0deg);
+  transform: translatex(-25px) translateY(-55px) rotateZ(0deg);
 }
 
 .green {
-  transform: translatex(-15px) rotateZ(115deg);
+  transform: translatex(15px) rotateZ(115deg);
 }
 
 .blue {
-  transform: translatex(-75px) translateY(-45px) rotateZ(230deg);
+  transform: translatex(-55px) translateY(-45px) rotateZ(230deg);
 }
 
 .face {

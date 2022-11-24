@@ -7,6 +7,7 @@
     <title>Rock, Paper and Scissors</title>
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
+    
 </head>
 <body>
     
@@ -16,19 +17,18 @@
     <div class="displayScore">        
     <div class="score">
         <h3 class="computerChoice"></h3>
-        <h1 class="computerScore">Score: 0</h1> 
+        <h1 class="computerScore">PC Score: 0</h1> 
         
         <h1 class="ties">Ties: 0</h1>    
         
-        <h1 class="playerScore">Score: 0</h1>  
-        <h3 class="playerChoice"></h3>
-        
+        <h1 class="playerScore">Player Score: 0</h1>  
+        <h3 class="playerChoice"></h3>      
           
   
     </div>
-    <div class="winnerDiv"></div>
-    <h1 class="winner"></h1>
-    <button class="reset" onclick="resetGame()">Play Again?</button>
+   
+    
+    
     </div>
     
     </div>
@@ -39,6 +39,11 @@
    
         <div class="pc-container">
             <img src="./images/pc.gif" class="pc" alt="">
+            <div class="pcShadow"></div>
+           
+            <div class="winnerDiv"></div>
+     <button class="reset" onclick="resetGame()">Play Again?</button>
+    <h1 class="winner"></h1>
         </div>
         
         <div class="computerSection">    
