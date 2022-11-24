@@ -45,16 +45,41 @@ body {
   background-color: var(--bg-color);
   min-height: 100vh;
   margin: 0;
-  /* overflow: hidden; */
-}
-
-img {
+  overflow: hidden;
   -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
   -user-drag: none;
 }
+
+p {
+  font-size: 13px;
+}
+
+.win-bg {
+  position: fixed;
+  width: 400px;
+  height: auto;
+  left: 0;
+place-self: flex-start;
+padding-left: 15em;
+padding-top: 2.5em;
+z-index: 5;
+}
+
+.win-help {
+  position: fixed;
+  right: 0;
+  width: 350px;
+  height: 50vh;
+  z-index: 1;
+  align-self: baseline;
+  justify-content: flex-end;
+  z-index: 4;
+
+}
+
 .title-bar-controls {
   z-index: 2;
   cursor: pointer;
@@ -63,9 +88,10 @@ img {
   height: auto;
   width: 320px;
   position: fixed;
-  align-self: center;
+  align-self: flex-end;
   left: 0;
   z-index: 3;
+  padding-bottom: 5em;
 }
 
 .reset {
