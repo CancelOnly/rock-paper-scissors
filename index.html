@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper and Scissors</title>
     <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="https://unpkg.com/98.css" />
     <script defer src="script.js"></script>
-    <link rel="stylesheet" href="https://unpkg.com/98.css" />
+  
 </head>
 <body>
-  
+   
   <!-- flexbox with windows content -->
   <div class="flexwin">   
   
@@ -20,7 +21,7 @@
                 <div class="title-bar-text">Game Score</div>
                  <div class="title-bar-controls">
                 <button onclick="closewin()" aria-label="Close"></button>
-  </div>
+                </div>
             </div>
     <div class="window-body">
     
@@ -58,20 +59,24 @@
     <div class="title-bar" id="startwin header">
     <div class="title-bar-text">Rock, Paper & Scissors</div>
     <div class="title-bar-controls">
-      <button aria-label="Minimize"></button>
-      <button aria-label="Maximize"></button>
+      <button onclick="alertwin()" aria-label="Minimize"></button>
+      <button onclick="alertwin()" aria-label="Maximize"></button>
       <button onclick="closewin()" aria-label="Close"></button>
     </div>
   </div>
   <div class="window-body">
     <p>I'm AI, the AI that was developed to beat every human in Rock, Paper & Scissors.</p>
     <P>Before we continue, put your name in the field below.</P>
+     
     <div class="field-row-stacked" style="width: 200px">
-  <label for="text17">Enter your name here:</label>
-  <input id="text17" type="text" value="Player"/>
+  <label for="text19">Nickname</label>
+  <input id="text19" type="text" />
     </div>
+   
+   
     <p></p>
-     <fieldset>
+    
+    <fieldset>
   <div class="field-row">Select Dificulty:</div>
   <div class="field-row">
     <input id="radio10" type="radio" name="fieldset-example">
@@ -97,8 +102,8 @@
     <div class="title-bar" id="helpwin header">
     <div class="title-bar-text">Help</div>
     <div class="title-bar-controls">
-      <button aria-label="Minimize"></button>
-      <button aria-label="Maximize"></button>
+      <button onclick="alertwin()" aria-label="Minimize"></button>
+      <button onclick="alertwin()" aria-label="Maximize"></button>
       <button onclick="closewin()" aria-label="Close"></button>
     </div>
   </div>
@@ -136,16 +141,11 @@
               
             </ul>
           </details>
-    
-     
- 
-  
-</ul>
-    
-</div>
+        </ul>
+    </div>
 </div>
     </div> 
-  </div>
+</div>
     <!-- PC -->
    
         <div class="pc-container">

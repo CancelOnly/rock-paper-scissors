@@ -60,6 +60,8 @@ button {
   cursor: pointer;
 }
 
+
+
 #helpwin,
 #startwin,
 #scorewin {
@@ -83,9 +85,8 @@ button {
 
 .win-start {
   display: flex;
-  z-index: 5;
-margin-bottom: 55em;
-  
+  z-index: 100;
+  margin-bottom: 55em;
 }
 
 .win-help {
@@ -301,6 +302,7 @@ margin-bottom: 55em;
   transform: rotateX(-180deg) translateZ(100px);
   background: linear-gradient(var(--color), #151515);
 }
+
 
 /* All animations */
 

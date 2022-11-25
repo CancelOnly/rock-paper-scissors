@@ -57,15 +57,18 @@ function closewin() {
     let showAlert;
     let r = confirm("Stop trying to close important features, do you understand?");
     if (r == true) {
-        x = "Yup";
     }
     else {
-        x = "Nope";
+        window.open("https://youtu.be/dQw4w9WgXcQ");
     }
     document.getElementById("demo").innerText = showAlert;
 }
 
+// other btns
 
+function alertwin() {
+    alert("Just aesthetic");
+}
 
 // Game Logic
 
