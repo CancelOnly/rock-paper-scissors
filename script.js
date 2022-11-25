@@ -9,6 +9,7 @@ toggle.onclick = function () {
     menu.classList.toggle('active');
     username = document.getElementById('nickname').value;
     document.getElementById('myBtn').disabled = true;
+    document.getElementById('myBtn').style.display = "none";
     if (inwin.style.opacity !== "1") {
         inwin.style.opacity = "0";
         
@@ -162,9 +163,9 @@ function displayRound(playerChoice, computerChoice, winner) {
 
 function displayRoundWinner(winner) {
     if (winner == "Player") {
-        document.querySelector(".winner").textContent = "Round Won";
+        document.querySelector(".winner").textContent = `${username} won the round`;
     } else if (winner == "Computer") {
-        document.querySelector(".winner").textContent = "PC is Superior";
+        document.querySelector(".winner").textContent = "AI is Superior";
     } else {
         document.querySelector(".winner").textContent = "Draw";
     }
