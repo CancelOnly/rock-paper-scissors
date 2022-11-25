@@ -1,15 +1,23 @@
-// Button to display game options
-
+// Button to display game options and get nickname
+let username;
 let toggle = document.querySelector('.toggle');
 let menu = document.querySelector('.menu');
+let inwin = document.querySelector('.win-start');
+
 
 toggle.onclick = function () {
-    menu.classList.toggle('active')
-}
+    menu.classList.toggle('active');
+    username = document.getElementById('nickname').value;
+    document.getElementById('myBtn').disabled = true;
+    if (inwin.style.opacity !== "1") {
+        inwin.style.opacity = "0";
+        
+    }
+};
 
 // Make the DIV element draggable Gamescore
 dragElement(document.getElementById("scorewin"));
-dragElement(document.getElementById("startwin"));
+// dragElement(document.getElementById("startwin"));
 dragElement(document.getElementById("helpwin"));
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -78,7 +86,7 @@ const choices = ["rock", "paper", "scissors"];
 
 function resetGame() {
     winners = [];
-    document.querySelector(".playerScore").textContent = "Player Score: 0";
+    document.querySelector(".playerScore").textContent = `${username} Score: 0`;
     document.querySelector(".computerScore").textContent = "PC Score: 0";
     document.querySelector(".ties").textContent = "Ties: 0";
     document.querySelector(".winner").textContent = "";
@@ -147,7 +155,7 @@ function displayEnd() {
 }
 
 function displayRound(playerChoice, computerChoice, winner) {
-    document.querySelector(".playerChoice").textContent = `You Chose: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}`;
+    document.querySelector(".playerChoice").textContent = `${username} Chose: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}`;
     document.querySelector(".computerChoice").textContent = `PC Chose: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
     displayRoundWinner(winner);
 }
@@ -166,7 +174,7 @@ function tallyWins() {
     let playerWins = winners.filter((item) => item == "Player").length;
     let computerWins = winners.filter((item) => item == "Computer").length;
     let ties = winners.filter((item) => item == "Tie").length;
-    document.querySelector('.playerScore').textContent = `Player Score: ${playerWins}`;
+    document.querySelector('.playerScore').textContent = `${username} Score: ${playerWins}`;
     document.querySelector('.computerScore').textContent = `PC Score: ${computerWins}`;
     document.querySelector('.ties').textContent = `Ties: ${ties}`;
 }
