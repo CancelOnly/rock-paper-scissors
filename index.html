@@ -10,131 +10,16 @@
     <link rel="stylesheet" href="https://unpkg.com/98.css" />
 </head>
 <body>
-    <div class="win-bg">
-    
-    <div class="window">
-    <div class="title-bar">
-    <div class="title-bar-text">Rock, Paper & Scissors</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize"></button>
-      <button aria-label="Maximize"></button>
-      <button aria-label="Close"></button>
-    </div>
-  </div>
-  <div class="window-body">
-    <p>I'm AI, the AI that was developed to beat every human in </br> Rock, Paper & Scissors.</p>
-    <P>Before we continue, put your name in the field below.</P>
-    <div class="field-row-stacked" style="width: 200px">
-  <label for="text17">Enter your name here:</label>
-  <input id="text17" type="text" value="Player"/>
-    </div>
-    <p></p>
-     <fieldset>
-  <div class="field-row">Select Dificulty:</div>
-  <div class="field-row">
-    <input id="radio10" type="radio" name="fieldset-example">
-    <label for="radio10">Impossible</label>
-  </div>
-  <div class="field-row">
-    <input id="radio11" type="radio" name="fieldset-example">
-    <label for="radio11">No chance</label>
-  </div>
-  <div class="field-row">
-    <input id="radio12" type="radio" name="fieldset-example">
-    <label for="radio12">Already dead</label>
-  </div>
-</fieldset>
-<p>When your ready click in Play to start the game</p>
-</div>
-</div>
-</div>
-
-    <div class="win-help">
-    
-    <div class="window">
-    <div class="title-bar">
-    <div class="title-bar-text">Help</div>
-    <div class="title-bar-controls">
-      <button aria-label="Minimize"></button>
-      <button aria-label="Maximize"></button>
-      <button aria-label="Close"></button>
-    </div>
-  </div>
-  <div class="window-body">
-    <p>I even put icons representing each option</br>but anycase.</p>
-    <p>There is three options</p>
-    <ul class="tree-view">
-  <li>3 Options</li>
-  <li>I even put icons representing each option</li>
-  <li>
-    Rock is the red one
-    <ul>
-      <li>Mountain</li>
-      <li>Specificity</li>
-      <li>Properties</li>
-    </ul>
-  </li>
-  <li>
-    <details open>
-      <summary>JavaScript</summary>
-      <ul>
-        <li>Avoid at all costs</li>
-        <li>
-          <details>
-            <summary>Unless</summary>
-            <ul>
-              <li>Avoid</li>
-              <li>
-                <details>
-                  <summary>At</summary>
-                  <ul>
-                    <li>Avoid</li>
-                    <li>At</li>
-                    <li>All</li>
-                    <li>Cost</li>
-                  </ul>
-                </details>
-              </li>
-              <li>All</li>
-              <li>Cost</li>
-            </ul>
-          </details>
-        </li>
-      </ul>
-    </details>
-  </li>
-  <li>HTML</li>
-  <li>Special Thanks</li>
-</ul>
-    
-</div>
-</div>
-</div> 
-
-    <!-- PC -->
-   
-        <div class="pc-container">
-            <img src="./images/pc.gif" class="pc" alt="">
-            <div class="pcShadow"></div>
-           
-            <div class="winnerDiv"></div>
-   
-    <h1 class="winner"></h1>
-        </div>
-        
-        <div class="computerSection">    
-          
-        </div>
-        </div>
-    
-    
-       <!-- Score -->
-     <div class="game-score"> 
-        <div class="window" style="width: 320px">
-            <div class="title-bar">
+  
+  <!-- flexbox with windows content -->
+  <div class="flexwin">   
+  
+    <div class="game-score"> 
+        <div class="window" style="width: 340px" id="scorewin">
+            <div class="title-bar" id="scorewin header">
                 <div class="title-bar-text">Game Score</div>
                  <div class="title-bar-controls">
-                <button aria-label="Close"></button>
+                <button onclick="closewin()" aria-label="Close"></button>
   </div>
             </div>
     <div class="window-body">
@@ -161,18 +46,118 @@
     <div class="status-bar">
     <p class="status-bar-field">Call 911 for help</p>
     <p class="status-bar-field">Best of 5</p>
-    <p class="status-bar-field">CPU Angriness: 100%</p>
+    <p class="status-bar-field">CPU Sharpness: 100%</p>
     </div>
     </div>
     </div>
-</div> 
+    </div> 
     
+    <div class="win-start">
     
-    <!-- fazer o cubo escolhido girar mais rapido quando clicado
-        fazer o nome do cubo em cima e sumir quando escolher outra coisa
-     -->
+    <div class="window" style="width: 280px" id="startwin">
+    <div class="title-bar" id="startwin header">
+    <div class="title-bar-text">Rock, Paper & Scissors</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button onclick="closewin()" aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <p>I'm AI, the AI that was developed to beat every human in Rock, Paper & Scissors.</p>
+    <P>Before we continue, put your name in the field below.</P>
+    <div class="field-row-stacked" style="width: 200px">
+  <label for="text17">Enter your name here:</label>
+  <input id="text17" type="text" value="Player"/>
+    </div>
+    <p></p>
+     <fieldset>
+  <div class="field-row">Select Dificulty:</div>
+  <div class="field-row">
+    <input id="radio10" type="radio" name="fieldset-example">
+    <label for="radio10">Impossible</label>
+  </div>
+  <div class="field-row">
+    <input id="radio11" type="radio" name="fieldset-example">
+    <label for="radio11">No chance</label>
+  </div>
+  <div class="field-row">
+    <input id="radio12" type="radio" name="fieldset-example">
+    <label for="radio12">Already dead</label>
+  </div>
+</fieldset>
+<p>When your ready click in Play to start the game</p>
+</div>
+</div>
+    </div>
+
+    <div class="win-help ">
+    
+      <div class="window" style="width: 280px" id="helpwin">
+    <div class="title-bar" id="helpwin header">
+    <div class="title-bar-text">Help</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button onclick="closewin()" aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    <p>I even put icons representing each option</br>but anycase.</p>
+    <p>There is three options</p>
+    <ul class="tree-view">
+
+    <details open>
+      <summary>Rock/Red Beats:</summary>
+      <ul>
+        <li>Scissors</li>
+      </ul>
+        
+      <details open>
+        <summary>Paper/Green Beats:</summary>
+        <ul>
+          <li>Rock</li>
+        </ul>
+        
+        <details open>
+            <summary>Scissors/Blue Beats:</summary>
+            <ul>
+              <li>Paper</li>
+            </ul>
+        
+            <details>
+            <summary> Special thanks</summary>
+            <ul>
+              <li>Julia &#10084;</li>
+              <li>Odin Project</li>
+              <li>Stack Overflow</li>
+              <li>W3Schools</li>
+              <li>Google.com</li>
+              
+            </ul>
+          </details>
+    
+     
  
-     <div class="menu">
+  
+</ul>
+    
+</div>
+</div>
+    </div> 
+  </div>
+    <!-- PC -->
+   
+        <div class="pc-container">
+            <img src="./images/pc.gif" class="pc" alt="">
+             <div class="computerSection"></div> 
+            <div class="pcShadow"></div>
+           
+            <div class="winnerDiv"></div>
+   
+            <h1 class="winner"></h1>
+            
+            <div class="menu">
         <!-- Play Button -->
         <button class="toggle button">Play</button>
         <!-- Red Cube -->
@@ -227,7 +212,11 @@
             </div>
             </li>
     </div>
-    </div> 
+            </div>             
+        </div>    
+    <!-- fazer o cubo escolhido girar mais rapido quando clicado
+        fazer o nome do cubo em cima e sumir quando escolher outra coisa
+     -->
   
 </body>
 </html>

@@ -40,58 +40,69 @@
 
 body {
   display: flex;
-  justify-content: center;
   align-items: center;
   background-color: var(--bg-color);
   min-height: 100vh;
   margin: 0;
   overflow: hidden;
-  -webkit-user-drag: none;
+  /* -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
   -o-user-drag: none;
-  -user-drag: none;
+  -user-drag: none; */
 }
 
 p {
   font-size: 13px;
 }
 
-.win-bg {
-  position: fixed;
-  width: 400px;
-  height: auto;
-  left: 0;
-place-self: flex-start;
-padding-left: 15em;
-padding-top: 2.5em;
-z-index: 5;
+button {
+  cursor: pointer;
+}
+
+#helpwin,
+#startwin,
+#scorewin {
+  position: absolute;
+}
+.title-bar {
+  cursor: move;
+}
+
+/* all windows styles */
+
+.flexwin {
+  display: flex;
+  position: absolute;
+  width: 79.5vw;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.win-start {
+  display: flex;
+  z-index: 5;
+margin-bottom: 55em;
+  
 }
 
 .win-help {
-  position: fixed;
-  right: 0;
-  width: 350px;
-  height: 50vh;
-  z-index: 1;
-  align-self: baseline;
-  justify-content: flex-end;
-  z-index: 4;
+  display: flex;
+  z-index: 5;
+  margin-bottom: 25em;
+}
 
+.game-score {
+  display: flex;
+  z-index: 5;
+  margin-bottom: 25em;
 }
 
 .title-bar-controls {
   z-index: 2;
   cursor: pointer;
-}
-.game-score {
-  height: auto;
-  width: 320px;
-  position: fixed;
-  align-self: flex-end;
-  left: 0;
-  z-index: 3;
-  padding-bottom: 5em;
 }
 
 .reset {
@@ -127,7 +138,7 @@ z-index: 5;
   margin: 0;
   padding: 0;
   top: 45px;
-  right: -7px;
+  right: -45px;
   width: 170px;
   height: 130px;
   justify-content: center;
@@ -166,9 +177,8 @@ z-index: 5;
   position: relative;
   width: 75px;
   height: 23px;
-  display: flex;
-  place-self: end;
-  bottom: 25em;
+  align-self: center;
+  right: 77px;
   z-index: 3;
 }
 
@@ -176,7 +186,6 @@ z-index: 5;
   position: absolute;
   left: -200px;
   bottom: -100px;
-
   list-style: none;
   transition: 0.5s;
   transform: rotate(calc(-240deg / 2.1 * var(--i)));
