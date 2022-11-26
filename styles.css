@@ -50,10 +50,9 @@ body {
   min-height: 100vh;
   margin: 0;
   overflow: hidden;
-  animation-name: backgroundColorPalette;
-  animation-duration: 30s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  
+  /* animation: backgroundColorPalette 30s infinite alternate; */
+  
   /* -webkit-user-drag: none;
   -khtml-user-drag: none;
   -moz-user-drag: none;
@@ -219,6 +218,10 @@ button {
   position: relative;
   animation: spin 5s infinite linear, floating 8s infinite linear;
   cursor: pointer;
+}
+
+.cube:hover {
+   animation: spin 1s infinite linear, floating 4s infinite linear;
 }
 
 .cube-blue,
